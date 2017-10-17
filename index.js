@@ -50,6 +50,7 @@ class Dropdown extends Component {
     event.preventDefault()
 
     if (!this.props.disabled) {
+      this.props.onOpen();
       this.setState({
         isOpen: !this.state.isOpen
       })
@@ -141,7 +142,7 @@ class Dropdown extends Component {
 
     return (
       <div className={dropdownClass}>
-        <div className={`${baseClassName}-control ${disabledClass}`} onMouseDown={this.handleMouseDown.bind(this)} onTouchEnd={this.handleMouseDown.bind(this)}>
+        <div className={`${baseClassName}-control ${disabledClass}`} onOpen={this.props.onOpen} onMouseDown={this.handleMouseDown.bind(this)} onTouchEnd={this.handleMouseDown.bind(this)}>
           {value}
           <span className={`${baseClassName}-arrow`} />
         </div>
